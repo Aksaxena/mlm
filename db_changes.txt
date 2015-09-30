@@ -1,0 +1,50 @@
+ALTER TABLE `tbl_users` ADD `parent_id` INT NULL DEFAULT NULL AFTER `user_id` ;
+
+ALTER TABLE `tbl_users` CHANGE `user_id` `user_pin` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL 
+
+ALTER TABLE `tbl_users` CHANGE `parent_id` `parent_id` VARCHAR( 255 ) NULL DEFAULT NULL 
+
+======= 04-09-2015 ============
+ALTER TABLE `tbl_users` ADD `profile_image` VARCHAR( 255 ) NOT NULL AFTER `date_of_birth`; 
+
+ALTER TABLE `tbl_tokens` ADD `assign_to_user` INT NULL DEFAULT NULL AFTER `status`
+
+=======06-09-2015 =============
+
+ALTER TABLE `tbl_users` ADD `city` VARCHAR( 255 ) NOT NULL AFTER `profile_image` ,
+ADD `state` VARCHAR( 255 ) NOT NULL AFTER `city` ,
+ADD `country` VARCHAR( 255 ) NOT NULL AFTER `state` ,
+ADD `pancard` VARCHAR( 255 ) NOT NULL AFTER `country` ,
+ADD `bank_name` VARCHAR( 255 ) NOT NULL AFTER `pancard` ,
+ADD `acct_number` VARCHAR( 255 ) NOT NULL AFTER `bank_name` ,
+ADD `branch_code` VARCHAR( 255 ) NOT NULL AFTER `acct_number` ,
+ADD `acct_holder_name` VARCHAR( 255 ) NOT NULL AFTER `branch_code`  
+
+
+
+CREATE TABLE IF NOT EXISTS `tbl_commission_setting` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `matching_bonum` int(11) NOT NULL,
+  `tds` int(11) NOT NULL,
+  `admin_charge` int(11) NOT NULL,
+  `recharge` int(11) NOT NULL,
+  `franchies` int(11) NOT NULL,
+  `point_value` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+ALTER TABLE `tbl_commission_setting` CHANGE `matching_bonum` `direct_income` INT( 11 ) NOT NULL;
+
+=======================20-09-2015=====================
+ALTER TABLE `tbl_wallet` ADD `right_rp_value` FLOAT NULL DEFAULT NULL AFTER `wallet_value` ,
+ADD `left_rp_value` FLOAT NULL DEFAULT NULL AFTER `right_rp_value`;  
+ALTER TABLE `tbl_wallet` ADD `updated` DATE NULL DEFAULT NULL AFTER `created`; 
+ALTER TABLE `tbl_commission_setting` ADD `capping` VARCHAR( 255 ) NULL DEFAULT NULL AFTER `point_value`; 
+
+=======================21-09-2015=====================
+ALTER TABLE `tbl_users` CHANGE `created` `created` DATE NULL DEFAULT NULL ;
+ALTER TABLE `tbl_users` CHANGE `created` `created` DATETIME NULL DEFAULT NULL ;
+=======================23-09-2015=====================
+ALTER TABLE `tbl_user_commission` CHANGE `right_remaining_users` `right_remaining_users` VARCHAR( 255 ) NOT NULL ,
+CHANGE `left_remaining_users` `left_remaining_users` VARCHAR( 255 ) NOT NULL 
+ALTER TABLE `tbl_commission_setting` ADD `indirect_income` INT NULL DEFAULT NULL AFTER `direct_income`; 

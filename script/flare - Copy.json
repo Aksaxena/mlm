@@ -1,0 +1,43 @@
+{
+ "name": "Alok",
+ "children": [
+  
+  {
+   "name": "flex",
+   "children": [
+    {"name": "FlareVis", "size": 4116}
+   ]
+  },
+  
+  
+  {
+   "name": "vis",
+   "children": [
+    {
+     "name": "operator",
+     "children": [
+      {
+       "name": "distortion",
+       "children": [
+        {"name": "BifocalDistortion", "size": 4461},
+        {"name": "Distortion", "size": 6314},
+        {"name": "FisheyeDistortion", "size": 3444}
+       ]
+      },
+      {
+       "name": "encoder",
+       "children": [
+        {"name": "ColorEncoder", "size": 3179},
+        {"name": "Encoder", "size": 4060},
+        {"name": "PropertyEncoder", "size": 4138},
+        {"name": "ShapeEncoder", "size": 1690},
+        {"name": "SizeEncoder", "size": 1830}
+       ]
+      }
+     ]
+    },
+    {"name": "Visualization", "size": 16540}
+   ]
+  }
+ ]
+}
